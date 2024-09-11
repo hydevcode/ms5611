@@ -14,7 +14,7 @@ static ms5611_device_t _ms5611_create(struct rt_sensor_intf *intf)
     return dev;
 }
 
-static rt_size_t ms5611_fetch_data(struct rt_sensor_device *sensor, void *buf, rt_size_t len)
+static RT_SIZE_TYPE ms5611_fetch_data(struct rt_sensor_device *sensor, void *buf, rt_size_t len)
 {
     ms5611_device_t ms5611 = (ms5611_device_t)sensor->parent.user_data;
     struct rt_sensor_data *data = (struct rt_sensor_data *)buf;
@@ -122,16 +122,16 @@ static int rt_hw_ms5611_temp_init(const char *name, struct rt_sensor_config *cfg
 
 int rt_hw_ms5611_init(const char *name, struct rt_sensor_config *cfg)
 {
-#if defined(MS5611_USING_TEMP) || defined(MS5611_USING_BARO)
+#if defined(PKG_MS5611_USING_TEMP) || defined(PKG_MS5611_USING_BARO)
     ms5611_device_t ms5611 = _ms5611_create(&cfg->intf);
     int tmp = 0;
 
     if (ms5611)
     {
-#ifdef MS5611_USING_BARO
+#ifdef PKG_MS5611_USING_BARO
         tmp += rt_hw_ms5611_baro_init(name, cfg, ms5611);
 #endif
-#ifdef MS5611_USING_TEMP
+#ifdef PKG_MS5611_USING_TEMP
         tmp += rt_hw_ms5611_temp_init(name, cfg, ms5611);
 #endif
         if (tmp != 0)
