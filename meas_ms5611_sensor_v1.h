@@ -1,5 +1,5 @@
-#ifndef SENSOR_MEAS_MS5611_H__
-#define SENSOR_MEAS_MS5611_H__
+#ifndef __MEAS_MS5611_SENSOR_V1_H__
+#define __MEAS_MS5611_SENSOR_V1_H__
 #include <rtdevice.h>
 
 #if defined(RT_VERSION_CHECK)

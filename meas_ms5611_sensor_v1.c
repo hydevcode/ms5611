@@ -1,7 +1,7 @@
-#include "sensor_meas_ms5611.h"
+#include "meas_ms5611_sensor_v1.h"
 
 #define DBG_ENABLE
-#define DBG_SECTION_NAME "MS5611"
+#define DBG_SECTION_NAME "MS5611.SENSOR.V1"
 #define DBG_LEVEL DBG_LOG
 #include <rtdbg.h>
 
